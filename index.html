@@ -2,62 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduLogicSim | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduLogicSim</title>
   <style>
+    :root{
+      --bg:#0f172a;       
+      --card:#111827;     
+      --muted:#94a3b8;    
+      --accent:#60a5fa;   
+      --ring:#2563eb;     
+      --text:#e5e7eb;     
+      --max:1100px;
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -100px, rgba(96,165,250,.15), transparent 60%),
+                  radial-gradient(1200px 600px at 120% -50px, rgba(56,189,248,.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 1rem;
+    }
+    .title {
+      font-size: clamp(2rem, 1.2rem + 3.2vw, 3rem);
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+    .wrapper {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    /* Top row */
+    .top {
+      display: grid;
+      grid-template-columns: 35% 65%;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    .card h2 {
+      margin: .25rem 0 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing:.3px;
+    }
+    .muted { color: var(--muted); }
+
+    /* Screenshot placeholders */
+    .shots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
+    }
+    .shot {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b1220;
+      border: 1px dashed rgba(255,255,255,.18);
+      display: grid;
+      place-items: center;
+      font-size: .95rem;
+      color: var(--muted);
+      padding: .5rem;
       text-align: center;
     }
-    header {
-      padding: 2rem 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    .button {
+
+    .cta {
+      margin-top: .75rem;
       display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      background: #fff;
-      color: #2575fc;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease, color 0.3s ease;
+      padding: .65rem 1rem;
+      border-radius: 999px;
+      background: #1f2937;
+      border: 1px solid rgba(255,255,255,.1);
+      transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .button:hover {
-      background: #2575fc;
-      color: #fff;
-    }
-    footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); border-color: rgba(96,165,250,.35); }
+    .cta:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+    /* About section */
+    .about { margin-top: .25rem; }
+
+    
+    @media (max-width: 860px) {
+      .top { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to EduLogicSim</h1>
-    <p>This is my personal GitHub Pages site — a place to share projects, ideas, and experiments.</p>
-    <a href="https://github.com/EduLogicSim" class="button">Visit My GitHub</a>
+    <div class="title">EduLogicSim</div>
   </header>
-  <footer>
-    © <span id="year"></span> EduLogicSim — All rights reserved.
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+  <main class="wrapper">
+    <!-- TOP ROW -->
+    <section class="top">
+      <!-- Screenshots + Intro video -->
+      <div class="card">
+        <h2>Screenshots & Intro Video</h2>
+        <div class="shots">
+          <!-- Placeholders -->
+          <div class="shot">Screenshot placeholder #1 (16:9)</div>
+          <div class="shot">Screenshot placeholder #2 (16:9)</div>
+          <div class="shot">Screenshot placeholder #3 (16:9)</div>
+        </div>
+
+        <!-- Placeholder YouTube URL -->
+        <a class="cta" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">
+          ▶ Watch the Intro on YouTube
+        </a>
+      </div>
+
+      <!-- App Description -->
+      <div class="card">
+        <h2>App Description</h2>
+        <p><strong>Learn Digital Logic Through Hands-On Simulation.</strong> EduLogicSim is a digital logic simulator designed for middle and high school students learning digital circuits and computer engineering fundamentals. Built to cover the core concepts you need without unnecessary complexity.</p>
+
+        <h3>What It Does</h3>
+        <h4>Circuit Building</h4>
+        <ul>
+          <li>Drag and drop basic logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR)</li>
+          <li>Add flip-flops (D, JK, T) for sequential circuits</li>
+          <li>Include input sources (switches, clock generators, 8-bit inputs)</li>
+          <li>Connect components with visual wiring</li>
+        </ul>
+
+        <h4>Live Simulation</h4>
+        <ul>
+          <li>See your circuits work in real-time</li>
+          <li>Monitor signal values as they change</li>
+          <li>View waveforms to understand timing</li>
+          <li>Start, stop, and reset simulations</li>
+        </ul>
+
+        <h4>Learning Resources</h4>
+        <ul>
+          <li>6 built-in lessons covering digital logic basics:
+            <ul>
+              <li>Number systems and binary</li>
+              <li>Logic gates and truth tables</li>
+              <li>Combinational circuits</li>
+              <li>Flip-flops and sequential logic</li>
+              <li>Counters and basic registers</li>
+              <li>Simple memory concepts</li>
+            </ul>
+          </li>
+          <li>Step-by-step activities with each lesson</li>
+        </ul>
+
+        <h4>File Management</h4>
+        <ul>
+          <li>Save and load your circuit designs</li>
+          <li>Add text labels to document your work</li>
+        </ul>
+
+        <h4>Who It’s For</h4>
+        <ul>
+          <li><strong>Students</strong> — Learn digital logic concepts through interactive experiments rather than just reading about them.</li>
+          <li><strong>Teachers</strong> — Demonstrate how digital circuits actually work in the classroom. Show students real-time cause-and-effect in digital systems.</li>
+        </ul>
+
+        <h4>System Requirements</h4>
+        <ul>
+          <li>Windows 10 or 11</li>
+          <li>Basic computer specs (runs on most school computers)</li>
+          <li>Download and extract zip file to run</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="card about" id="about">
+      <h2>About Me</h2>
+      <p>I am a high school student from Northern California with a strong interest in electrical and computer engineering. My interest developed a few years ago when I first explored the fundamentals of engineering in one of my high school classes. From the course, I learned how ideas can be transformed into functional designs. Not long after, I attended a summer college engineering program for high schoolers where I was introduced to more advanced design concepts and saw how engineering principles could be applied across different fields.</p>
+      <p>Over time, I developed an interest in digital design, studying how logic gates, sequential systems, and printed circuit boards work together to bring ideas to life. This interest inspired me to build my own digital logic simulator in Python, aiming to provide a platform for middle and high school students to experiment with circuit design. I also created tutorials to help beginners get started so that they may apply what they have learned and experiment within this application.</p>
+      <p>This is my first public release, and it is a starting point for what I want to develop and improve over time. I am eager to improve it with input from educators, students, and fellow developers. If you have feedback or ideas for improvement, I would be happy to hear from you at <a href="mailto:EduLogicSim@gmail.com">EduLogicSim@gmail.com</a>.</p>
+    </section>
+  </main>
 </body>
 </html>
