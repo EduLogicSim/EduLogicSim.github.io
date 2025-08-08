@@ -6,18 +6,18 @@
   <title>EduLogicSim</title>
   <style>
     :root{
-      --bg:#0f172a;       
-      --card:#111827;     
-      --muted:#94a3b8;    
-      --accent:#60a5fa;   
-      --ring:#2563eb;     
-      --text:#e5e7eb;     
+      --bg:#0f172a;
+      --card:#111827;
+      --muted:#94a3b8;
+      --accent:#60a5fa;
+      --ring:#2563eb;
+      --text:#e5e7eb;
       --max:1100px;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: radial-gradient(1200px 600px at 20% -100px, rgba(96,165,250,.15), transparent 60%),
                   radial-gradient(1200px 600px at 120% -50px, rgba(56,189,248,.12), transparent 60%),
                   var(--bg);
@@ -69,7 +69,6 @@
     /* Screenshot placeholders */
     .shots {
       display: grid;
-      grid-template-columns: 1fr;
       gap: .75rem;
     }
     .shot {
@@ -90,7 +89,7 @@
     .cta {
       margin-top: .75rem;
       display: inline-block;
-      padding: .65rem 1rem;
+      padding: 0.65rem 1rem;
       border-radius: 999px;
       background: #1f2937;
       border: 1px solid rgba(255,255,255,.1);
@@ -99,12 +98,20 @@
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); border-color: rgba(96,165,250,.35); }
     .cta:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
 
-    /* About section */
+    /* Left col */
+    .left-column {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      gap: 1.25rem;
+      height: 100%;
+    }
+
+    /* About  */
     .about { margin-top: .25rem; }
 
-    
     @media (max-width: 860px) {
       .top { grid-template-columns: 1fr; }
+      .left-column { grid-template-rows: auto; }
     }
   </style>
 </head>
@@ -114,25 +121,38 @@
   </header>
 
   <main class="wrapper">
-    <!-- TOP ROW -->
+    <!-- Top Row -->
     <section class="top">
-      <!-- Screenshots + Intro video -->
-      <div class="card">
-        <h2>Screenshots & Intro Video</h2>
-        <div class="shots">
-          <!-- Placeholders -->
-          <div class="shot">Screenshot placeholder #1 (16:9)</div>
-          <div class="shot">Screenshot placeholder #2 (16:9)</div>
-          <div class="shot">Screenshot placeholder #3 (16:9)</div>
+      <!-- Left Col -->
+      <div class="left-column">
+        <!-- Screenshots & Intro -->
+        <div class="card">
+          <h2>Screenshots & Intro Video</h2>
+          <div class="shots">
+            <div class="shot">Screenshot placeholder #1 (16:9)</div>
+            <div class="shot">Screenshot placeholder #2 (16:9)</div>
+            <div class="shot">Screenshot placeholder #3 (16:9)</div>
+          </div>
+          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_INTRO_VIDEO" target="_blank" rel="noopener">
+            ▶ Intro Video on YouTube
+          </a>
         </div>
 
-        <!-- Placeholder YouTube URL -->
-        <a class="cta" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">
-          ▶ Watch the Intro on YouTube
-        </a>
+        <!-- Instr & Download -->
+        <div class="card">
+          <h2>Get Started</h2>
+          <p><strong>How to Use EduLogicSim</strong></p>
+          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_HOWTO_VIDEO" target="_blank" rel="noopener">
+            ▶ Watch the Tutorial
+          </a>
+          <p style="margin-top:1rem;"><strong>Download (Release 1.0)</strong></p>
+          <a class="cta" href="downloads/EduLogicSim_v1.0.zip" download>
+            ⬇ Download Now
+          </a>
+        </div>
       </div>
 
-      <!-- App Description -->
+      <!-- App Descr -->
       <div class="card">
         <h2>App Description</h2>
         <p><strong>Learn Digital Logic Through Hands-On Simulation.</strong> EduLogicSim is a digital logic simulator designed for middle and high school students learning digital circuits and computer engineering fundamentals. Built to cover the core concepts you need without unnecessary complexity.</p>
