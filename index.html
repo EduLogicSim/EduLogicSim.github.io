@@ -29,25 +29,27 @@
     header{max-width:var(--max);margin:0 auto;padding:2.5rem 1.25rem 1rem}
     .title{font-size:clamp(2rem,1.2rem + 3.2vw,3rem);font-weight:800;letter-spacing:.5px}
     .wrapper{max-width:var(--max);margin:0 auto;padding:0 1.25rem 2.5rem;display:grid;gap:1.25rem}
-    .top{display:grid;grid-template-columns:35% 65%;gap:1.25rem;align-items:start}
+    .grid{display:grid;grid-template-columns:35% 65%;gap:1.25rem;align-items:stretch}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1rem;box-shadow:0 10px 25px rgba(0,0,0,.25)}
     .card h2{margin:.25rem 0 .75rem;font-size:1.25rem;letter-spacing:.3px}
-    .left-column{display:grid;grid-template-rows:auto auto;gap:1.25rem}
+    .left-column{display:flex;flex-direction:column;row-gap:1.25rem}
+    .grow{flex:1;display:flex;flex-direction:column}
     .shots{display:grid;gap:.75rem}
     .shot{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
     .shot-img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
     .cta{margin-top:.75rem;display:inline-block;padding:.65rem 1rem;border-radius:999px;background:#1f2937;border:1px solid rgba(255,255,255,.1);transition:transform .08s ease,box-shadow .2s ease,border-color .2s ease}
     .cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.3);border-color:rgba(96,165,250,.35)}
     .cta:focus{outline:2px solid var(--ring);outline-offset:2px}
-    .about{margin-top:.25rem}
+    .about{grid-column:1 / -1}
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:2rem;z-index:50}
     .lightbox.open{display:flex}
     .lightbox-figure{max-width:min(95vw,1100px);max-height:90vh;display:flex;flex-direction:column;gap:.5rem}
     .lightbox-img{max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
     .lightbox-cap{text-align:center;color:#e5e7eb;font-size:.95rem}
     @media (max-width:860px){
-      .top{grid-template-columns:1fr}
-      .left-column{grid-template-rows:auto}
+      .grid{grid-template-columns:1fr}
+      .left-column{row-gap:1.25rem}
+      .grow{flex:unset}
     }
   </style>
 </head>
@@ -56,14 +58,14 @@
     <div class="title">EduLogicSim</div>
   </header>
   <main class="wrapper">
-    <section class="top">
+    <section class="grid">
       <div class="left-column">
-        <div class="card">
+        <div class="card grow">
           <h2>Screenshots & Intro Video</h2>
           <div class="shots">
-            <div class="shot"><img class="shot-img" src="Intro%20Screen.JPG?v=3" alt="Intro Screen"></div>
-            <div class="shot"><img class="shot-img" src="Circuit%20screen.JPG?v=3" alt="Circuit Screen"></div>
-            <div class="shot"><img class="shot-img" src="Waveform.JPG?v=3" alt="Waveform Viewer"></div>
+            <div class="shot"><img class="shot-img" src="Intro%20Screen.JPG?v=5" alt="Intro Screen"></div>
+            <div class="shot"><img class="shot-img" src="Circuit%20screen.JPG?v=5" alt="Circuit Screen"></div>
+            <div class="shot"><img class="shot-img" src="Waveform.JPG?v=5" alt="Waveform Viewer"></div>
           </div>
           <a class="cta" href="https://www.youtube.com/watch?v=YOUR_INTRO_VIDEO" target="_blank" rel="noopener">▶ Watch the Intro on YouTube</a>
         </div>
@@ -124,12 +126,12 @@
           <li>Download and extract zip file to run</li>
         </ul>
       </div>
-    </section>
-    <section class="card about" id="about">
-      <h2>About Me</h2>
-      <p>I am a high school student from Northern California with a strong interest in electrical and computer engineering. My interest developed a few years ago when I first explored the fundamentals of engineering in one of my high school classes. From the course, I learned how ideas can be transformed into functional designs. Not long after, I attended a summer college engineering program for high schoolers where I was introduced to more advanced design concepts and saw how engineering principles could be applied across different fields.</p>
-      <p>Over time, I developed an interest in digital design, studying how logic gates, sequential systems, and printed circuit boards work together to bring ideas to life. This interest inspired me to build my own digital logic simulator in Python, aiming to provide a platform for middle and high school students to experiment with circuit design. I also created tutorials to help beginners get started so that they may apply what they have learned and experiment within this application.</p>
-      <p>This is my first public release, and it is a starting point for what I want to develop and improve over time. I am eager to improve it with input from educators, students, and fellow developers. If you have feedback or ideas for improvement, I would be happy to hear from you at <a href="mailto:EduLogicSim@gmail.com">EduLogicSim@gmail.com</a>.</p>
+      <section class="card about" id="about">
+        <h2>About Me</h2>
+        <p>I am a high school student from Northern California with a strong interest in electrical and computer engineering. My interest developed a few years ago when I first explored the fundamentals of engineering in one of my high school classes. From the course, I learned how ideas can be transformed into functional designs. Not long after, I attended a summer college engineering program for high schoolers where I was introduced to more advanced design concepts and saw how engineering principles could be applied across different fields.</p>
+        <p>Over time, I developed an interest in digital design, studying how logic gates, sequential systems, and printed circuit boards work together to bring ideas to life. This interest inspired me to build my own digital logic simulator in Python, aiming to provide a platform for middle and high school students to experiment with circuit design. I also created tutorials to help beginners get started so that they may apply what they have learned and experiment within this application.</p>
+        <p>This is my first public release, and it is a starting point for what I want to develop and improve over time. I am eager to improve it with input from educators, students, and fellow developers. If you have feedback or ideas for improvement, I would be happy to hear from you at <a href="mailto:EduLogicSim@gmail.com">EduLogicSim@gmail.com</a>.</p>
+      </section>
     </section>
   </main>
   <div class="lightbox" id="lightbox">
