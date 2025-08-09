@@ -50,6 +50,7 @@
       display: grid;
       grid-template-columns: 35% 65%;
       gap: 1.25rem;
+      align-items: start;
     }
 
     .card {
@@ -66,24 +67,25 @@
     }
     .muted { color: var(--muted); }
 
-    /* Screenshot placeholders */
+    /* Left column split */
+    .left-column {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      gap: 1.25rem;
+      min-height: 640px; 
+    }
+
+    /* Screenshot */
     .shots {
       display: grid;
       gap: .75rem;
     }
-    .shot {
-      position: relative;
-      aspect-ratio: 16 / 9;
+    .shot-img {
+      width: 100%;
+      display: block;
       border-radius: 12px;
-      overflow: hidden;
-      background: #0b1220;
-      border: 1px dashed rgba(255,255,255,.18);
-      display: grid;
-      place-items: center;
-      font-size: .95rem;
-      color: var(--muted);
-      padding: .5rem;
-      text-align: center;
+      border: 1px solid rgba(255,255,255,.12);
+      background:#0b1220;
     }
 
     .cta {
@@ -98,20 +100,12 @@
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); border-color: rgba(96,165,250,.35); }
     .cta:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
 
-    /* Left col */
-    .left-column {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      gap: 1.25rem;
-      height: 100%;
-    }
-
-    /* About  */
+    /* About */
     .about { margin-top: .25rem; }
 
     @media (max-width: 860px) {
       .top { grid-template-columns: 1fr; }
-      .left-column { grid-template-rows: auto; }
+      .left-column { grid-template-rows: auto; min-height: unset; }
     }
   </style>
 </head>
@@ -123,28 +117,36 @@
   <main class="wrapper">
     <!-- Top Row -->
     <section class="top">
-      <!-- Left Col -->
+      <!-- Left -->
       <div class="left-column">
-        <!-- Screenshots & Intro -->
+        <!-- Top  -->
         <div class="card">
           <h2>Screenshots & Intro Video</h2>
           <div class="shots">
-            <div class="shot">Screenshot placeholder #1 (16:9)</div>
-            <div class="shot">Screenshot placeholder #2 (16:9)</div>
-            <div class="shot">Screenshot placeholder #3 (16:9)</div>
+            <!-- Intro, Circuit, Waveform -->
+            <a href="Intro%20Screen.JPG" target="_blank" rel="noopener">
+              <img class="shot-img" src="Intro%20Screen.JPG" alt="EduLogicSim - Intro Screen">
+            </a>
+            <a href="Circuit%20screen.JPG" target="_blank" rel="noopener">
+              <img class="shot-img" src="Circuit%20screen.JPG" alt="EduLogicSim - Circuit Screen">
+            </a>
+            <a href="Waveform.JPG" target="_blank" rel="noopener">
+              <img class="shot-img" src="Waveform.JPG" alt="EduLogicSim - Waveform Viewer">
+            </a>
           </div>
           <a class="cta" href="https://www.youtube.com/watch?v=YOUR_INTRO_VIDEO" target="_blank" rel="noopener">
-            ▶ Intro Video on YouTube
+            ▶ Watch the Intro on YouTube
           </a>
         </div>
 
-        <!-- Instr & Download -->
+        <!-- Bottom -->
         <div class="card">
           <h2>Get Started</h2>
           <p><strong>How to Use EduLogicSim</strong></p>
           <a class="cta" href="https://www.youtube.com/watch?v=YOUR_HOWTO_VIDEO" target="_blank" rel="noopener">
             ▶ Watch the Tutorial
           </a>
+
           <p style="margin-top:1rem;"><strong>Download (Release 1.0)</strong></p>
           <a class="cta" href="downloads/EduLogicSim_v1.0.zip" download>
             ⬇ Download Now
@@ -152,7 +154,7 @@
         </div>
       </div>
 
-      <!-- App Descr -->
+      <!-- Right -->
       <div class="card">
         <h2>App Description</h2>
         <p><strong>Learn Digital Logic Through Hands-On Simulation.</strong> EduLogicSim is a digital logic simulator designed for middle and high school students learning digital circuits and computer engineering fundamentals. Built to cover the core concepts you need without unnecessary complexity.</p>
