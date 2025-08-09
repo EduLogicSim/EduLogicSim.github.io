@@ -26,7 +26,6 @@
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     header {
       max-width: var(--max);
       margin: 0 auto;
@@ -44,15 +43,12 @@
       display: grid;
       gap: 1.25rem;
     }
-
-    /* Top row */
     .top {
       display: grid;
       grid-template-columns: 35% 65%;
       gap: 1.25rem;
       align-items: start;
     }
-
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border: 1px solid rgba(255,255,255,.06);
@@ -66,28 +62,24 @@
       letter-spacing:.3px;
     }
     .muted { color: var(--muted); }
-
-    /* Left column split */
     .left-column {
       display: grid;
-      grid-template-rows: 65% 35%;
+      grid-template-rows: auto auto;
       gap: 1.25rem;
-      min-height: 640px; 
     }
-
-    /* Screenshot */
     .shots {
       display: grid;
       gap: .75rem;
     }
     .shot-img {
       width: 100%;
+      max-height: 180px;
+      object-fit: contain;
       display: block;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,.12);
       background:#0b1220;
     }
-
     .cta {
       margin-top: .75rem;
       display: inline-block;
@@ -99,13 +91,10 @@
     }
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); border-color: rgba(96,165,250,.35); }
     .cta:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
-
-    /* About */
     .about { margin-top: .25rem; }
-
     @media (max-width: 860px) {
       .top { grid-template-columns: 1fr; }
-      .left-column { grid-template-rows: auto; min-height: unset; }
+      .left-column { grid-template-rows: auto; }
     }
   </style>
 </head>
@@ -113,17 +102,12 @@
   <header>
     <div class="title">EduLogicSim</div>
   </header>
-
   <main class="wrapper">
-    <!-- Top Row -->
     <section class="top">
-      <!-- Left -->
       <div class="left-column">
-        <!-- Top  -->
         <div class="card">
           <h2>Screenshots & Intro Video</h2>
           <div class="shots">
-            <!-- Intro, Circuit, Waveform -->
             <a href="Intro%20Screen.JPG" target="_blank" rel="noopener">
               <img class="shot-img" src="Intro%20Screen.JPG" alt="EduLogicSim - Intro Screen">
             </a>
@@ -138,27 +122,21 @@
             ▶ Watch the Intro on YouTube
           </a>
         </div>
-
-        <!-- Bottom -->
         <div class="card">
           <h2>Get Started</h2>
           <p><strong>How to Use EduLogicSim</strong></p>
           <a class="cta" href="https://www.youtube.com/watch?v=YOUR_HOWTO_VIDEO" target="_blank" rel="noopener">
             ▶ Watch the Tutorial
           </a>
-
           <p style="margin-top:1rem;"><strong>Download (Release 1.0)</strong></p>
           <a class="cta" href="downloads/EduLogicSim_v1.0.zip" download>
             ⬇ Download Now
           </a>
         </div>
       </div>
-
-      <!-- Right -->
       <div class="card">
         <h2>App Description</h2>
         <p><strong>Learn Digital Logic Through Hands-On Simulation.</strong> EduLogicSim is a digital logic simulator designed for middle and high school students learning digital circuits and computer engineering fundamentals. Built to cover the core concepts you need without unnecessary complexity.</p>
-
         <h3>What It Does</h3>
         <h4>Circuit Building</h4>
         <ul>
@@ -167,7 +145,6 @@
           <li>Include input sources (switches, clock generators, 8-bit inputs)</li>
           <li>Connect components with visual wiring</li>
         </ul>
-
         <h4>Live Simulation</h4>
         <ul>
           <li>See your circuits work in real-time</li>
@@ -175,7 +152,6 @@
           <li>View waveforms to understand timing</li>
           <li>Start, stop, and reset simulations</li>
         </ul>
-
         <h4>Learning Resources</h4>
         <ul>
           <li>6 built-in lessons covering digital logic basics:
@@ -190,19 +166,16 @@
           </li>
           <li>Step-by-step activities with each lesson</li>
         </ul>
-
         <h4>File Management</h4>
         <ul>
           <li>Save and load your circuit designs</li>
           <li>Add text labels to document your work</li>
         </ul>
-
         <h4>Who It’s For</h4>
         <ul>
           <li><strong>Students</strong> — Learn digital logic concepts through interactive experiments rather than just reading about them.</li>
           <li><strong>Teachers</strong> — Demonstrate how digital circuits actually work in the classroom. Show students real-time cause-and-effect in digital systems.</li>
         </ul>
-
         <h4>System Requirements</h4>
         <ul>
           <li>Windows 10 or 11</li>
@@ -211,8 +184,6 @@
         </ul>
       </div>
     </section>
-
-    <!-- About Me -->
     <section class="card about" id="about">
       <h2>About Me</h2>
       <p>I am a high school student from Northern California with a strong interest in electrical and computer engineering. My interest developed a few years ago when I first explored the fundamentals of engineering in one of my high school classes. From the course, I learned how ideas can be transformed into functional designs. Not long after, I attended a summer college engineering program for high schoolers where I was introduced to more advanced design concepts and saw how engineering principles could be applied across different fields.</p>
