@@ -14,87 +14,39 @@
       --text:#e5e7eb;
       --max:1100px;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 600px at 20% -100px, rgba(96,165,250,.15), transparent 60%),
-                  radial-gradient(1200px 600px at 120% -50px, rgba(56,189,248,.12), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:radial-gradient(1200px 600px at 20% -100px, rgba(96,165,250,.15), transparent 60%),
+                 radial-gradient(1200px 600px at 120% -50px, rgba(56,189,248,.12), transparent 60%),
+                 var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 1rem;
-    }
-    .title {
-      font-size: clamp(2rem, 1.2rem + 3.2vw, 3rem);
-      font-weight: 800;
-      letter-spacing: .5px;
-    }
-    .wrapper {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 1.25rem 2.5rem;
-      display: grid;
-      gap: 1.25rem;
-    }
-    .top {
-      display: grid;
-      grid-template-columns: 35% 65%;
-      gap: 1.25rem;
-      align-items: start;
-    }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 16px;
-      padding: 1rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-    }
-    .card h2 {
-      margin: .25rem 0 0.75rem;
-      font-size: 1.25rem;
-      letter-spacing:.3px;
-    }
-    .muted { color: var(--muted); }
-    .left-column {
-      display: grid;
-      grid-template-rows: auto auto;
-      gap: 1.25rem;
-    }
-    .shots {
-      display: grid;
-      gap: .75rem;
-    }
-    .shot-img {
-      width: 100%;
-      max-height: 180px;
-      object-fit: contain;
-      display: block;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background:#0b1220;
-    }
-    .cta {
-      margin-top: .75rem;
-      display: inline-block;
-      padding: 0.65rem 1rem;
-      border-radius: 999px;
-      background: #1f2937;
-      border: 1px solid rgba(255,255,255,.1);
-      transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); border-color: rgba(96,165,250,.35); }
-    .cta:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
-    .about { margin-top: .25rem; }
-    @media (max-width: 860px) {
-      .top { grid-template-columns: 1fr; }
-      .left-column { grid-template-rows: auto; }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{max-width:var(--max);margin:0 auto;padding:2.5rem 1.25rem 1rem}
+    .title{font-size:clamp(2rem,1.2rem + 3.2vw,3rem);font-weight:800;letter-spacing:.5px}
+    .wrapper{max-width:var(--max);margin:0 auto;padding:0 1.25rem 2.5rem;display:grid;gap:1.25rem}
+    .top{display:grid;grid-template-columns:35% 65%;gap:1.25rem;align-items:start}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1rem;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+    .card h2{margin:.25rem 0 .75rem;font-size:1.25rem;letter-spacing:.3px}
+    .left-column{display:grid;grid-template-rows:auto auto;gap:1.25rem}
+    .shots{display:grid;gap:.75rem}
+    .shot-img{width:100%;max-height:180px;object-fit:contain;display:block;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b1220;cursor:zoom-in}
+    .cta{margin-top:.75rem;display:inline-block;padding:.65rem 1rem;border-radius:999px;background:#1f2937;border:1px solid rgba(255,255,255,.1);transition:transform .08s ease,box-shadow .2s ease,border-color .2s ease}
+    .cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.3);border-color:rgba(96,165,250,.35)}
+    .cta:focus{outline:2px solid var(--ring);outline-offset:2px}
+    .about{margin-top:.25rem}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:2rem;z-index:50}
+    .lightbox.open{display:flex}
+    .lightbox-figure{max-width:min(95vw,1100px);max-height:90vh;display:flex;flex-direction:column;gap:.5rem}
+    .lightbox-img{max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+    .lightbox-cap{text-align:center;color:#e5e7eb;font-size:.95rem}
+    @media (max-width:860px){
+      .top{grid-template-columns:1fr}
+      .left-column{grid-template-rows:auto}
     }
   </style>
 </head>
@@ -108,30 +60,18 @@
         <div class="card">
           <h2>Screenshots & Intro Video</h2>
           <div class="shots">
-            <a href="Intro%20Screen.JPG" target="_blank" rel="noopener">
-              <img class="shot-img" src="Intro%20Screen.JPG" alt="EduLogicSim - Intro Screen">
-            </a>
-            <a href="Circuit%20screen.JPG" target="_blank" rel="noopener">
-              <img class="shot-img" src="Circuit%20screen.JPG" alt="EduLogicSim - Circuit Screen">
-            </a>
-            <a href="Waveform.JPG" target="_blank" rel="noopener">
-              <img class="shot-img" src="Waveform.JPG" alt="EduLogicSim - Waveform Viewer">
-            </a>
+            <img class="shot-img" src="Intro%20Screen.JPG?v=2025-08-08" alt="Intro Screen">
+            <img class="shot-img" src="Circuit%20screen.JPG?v=2025-08-08" alt="Circuit Screen">
+            <img class="shot-img" src="Waveform.JPG?v=2025-08-08" alt="Waveform Viewer">
           </div>
-          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_INTRO_VIDEO" target="_blank" rel="noopener">
-            ▶ Watch the Intro on YouTube
-          </a>
+          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_INTRO_VIDEO" target="_blank" rel="noopener">▶ Watch the Intro on YouTube</a>
         </div>
         <div class="card">
           <h2>Get Started</h2>
           <p><strong>How to Use EduLogicSim</strong></p>
-          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_HOWTO_VIDEO" target="_blank" rel="noopener">
-            ▶ Watch the Tutorial
-          </a>
+          <a class="cta" href="https://www.youtube.com/watch?v=YOUR_HOWTO_VIDEO" target="_blank" rel="noopener">▶ Watch the Tutorial</a>
           <p style="margin-top:1rem;"><strong>Download (Release 1.0)</strong></p>
-          <a class="cta" href="downloads/EduLogicSim_v1.0.zip" download>
-            ⬇ Download Now
-          </a>
+          <a class="cta" href="downloads/EduLogicSim_v1.0.zip" download>⬇ Download Now</a>
         </div>
       </div>
       <div class="card">
@@ -179,7 +119,7 @@
         <h4>System Requirements</h4>
         <ul>
           <li>Windows 10 or 11</li>
-          <li>Basic computer specs (runs on most school computers)</li>
+          <li>Basic computer specs</li>
           <li>Download and extract zip file to run</li>
         </ul>
       </div>
@@ -191,5 +131,30 @@
       <p>This is my first public release, and it is a starting point for what I want to develop and improve over time. I am eager to improve it with input from educators, students, and fellow developers. If you have feedback or ideas for improvement, I would be happy to hear from you at <a href="mailto:EduLogicSim@gmail.com">EduLogicSim@gmail.com</a>.</p>
     </section>
   </main>
+  <div class="lightbox" id="lightbox">
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" class="lightbox-img" alt="">
+      <figcaption id="lightbox-cap" class="lightbox-cap"></figcaption>
+    </figure>
+  </div>
+  <script>
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lightbox-img');
+    const lbCap=document.getElementById('lightbox-cap');
+    document.querySelectorAll('.shot-img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        lbImg.src=img.src;
+        lbImg.alt=img.alt||'';
+        lbCap.textContent=img.alt||'';
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click',e=>{
+      if(e.target===lb) lb.classList.remove('open');
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape') lb.classList.remove('open');
+    });
+  </script>
 </body>
 </html>
